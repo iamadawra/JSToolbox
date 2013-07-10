@@ -19,7 +19,7 @@ function doubleNode(){
 }
 
 
-//Creates a singly(default) or doubly linked list. linkedlisttpye = Double for doubly linked list
+//Creates a singly(default) or doubly linked list. linkedlisttpye = Double, for doubly linked list
 function createLinkedList(numberOfNodes, linkedListType){
 	if (linkedListType.toString() == "Double"){
 		var head = new doubleNode();
@@ -39,4 +39,10 @@ function createLinkedList(numberOfNodes, linkedListType){
 			currNode = nextNode;
 		}
 	}
+}
+
+function stack(){
+	var stackArray = new Array();
+
+	//Figure out how prototypes and class methods work in JS
 }

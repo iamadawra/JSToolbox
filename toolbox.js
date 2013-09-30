@@ -12,17 +12,54 @@ function Node(){
 Doubly Linked List
 *******************************/
 
-function doubleNode(){
-	this.content = null;
+function DoubleNode(content){
+	this.content = content;
 	this.next = null; //Next Pointer
 	this.prev = null; //Previous Pointer
 }
 
+function DoubleLinkedList(){
+  this.head = new DoubleNode();
+}
+
+//Overloading Constructor for Linked lists of a given length
+function DoubleLinkedList(length){
+  this.head = new DoubleNode();
+  currNode = head;
+  for(i=0; i<length; i++){
+    tempNode = new DoubleNode();
+    tempNode.prev = currNode;
+    currNode.next = tempNode;
+    currNode = tempNode;
+  }
+}
+
+//Methods for Doubly Linked List
+DoubleLinkedList.prototype = {
+  length: function(){
+    counter = 0;
+    currNode = this.head;
+    while (currNode.next != null){
+      counter++;
+      currNode = currNode.next;
+    }
+  }
+
+  addNodeAfter: function(content, position){
+    currNode = this.head;
+    for(i=1; i<position; i++){
+      currNode = currNode.next;
+    }
+    tempNode = new DoubleNode(content);
+    currNode.next = tempNode;
+    tempNode.prev = currNode;
+  }
+}
 
 //Creates a singly(default) or doubly linked list. linkedlisttpye = Double, for doubly linked list
 function createLinkedList(numberOfNodes, linkedListType){
 	if (linkedListType.toString() == "Double"){
-		var head = new doubleNode();
+		var head = new DoubleNode();
 	}else{
 		var head = new Node();
 	}
